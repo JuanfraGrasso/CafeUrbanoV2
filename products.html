@@ -6,17 +6,28 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Menu - Café Urbano</title>
 	<link rel="stylesheet" href="style.css">
+	<script src="script.js"></script>
 </head>
 
 <body>
 	<header class="main-header">
-		<div class="header">
-			<nav class="main-nav">
-				<a href="index.html">Inicio</a>
-				<a href="promotions.html">Promociones</a>
-				<a href="products.html" class="active">Productos</a>
-				<a href="contact.html">Contacto</a>
-			</nav>
+		<nav class="main-nav">
+			<a href="index.html">Inicio</a>
+			<a href="promotions.html">Promociones</a>
+			<a href="products.html" class="active">Productos</a>
+			<a href="contact.html">Contacto</a>
+		</nav>
+		<button class="cart-btn" id="cart-btn" onclick="toggleCart()">
+			🛒 <span class="cart-count" id="cart-count">0</span>
+		</button>
+		<div id="cart-modal" class="cart-modal">
+			<div class="cart-content">
+				<span class="close" onclick="toggleCart()">&times;</span>
+				<h2>Carrito</h2>
+				<ul id="cart-items"></ul>
+				<p>Total: $<span id="cart-total">0</span></p>
+				<button onclick="clearCart()">Vaciar carrito</button>
+			</div>
 		</div>
 	</header>
 	<main class="product-content">
@@ -27,33 +38,69 @@
 					<img src="images/cafe1.jpg" alt="Café Espresso" class="product-img">
 					<h2>Café Espresso</h2>
 					<p>Un espresso intenso y aromático, preparado con granos seleccionados y tostado artesanal.</p>
+					<p>$150</p>
+					<div class="product-actions">
+						<input type="number" min="1" value="1" class="product-qty" id="qty-espresso">
+						<button
+							onclick="addToCart({name: 'Café Espresso', price: 150}, document.getElementById('qty-espresso').value)">Agregar</button>
+					</div>
 				</div>
 				<div class="product-item">
 					<img src="images/cafe2.webp" alt="Café Latte" class="product-img">
 					<h2>Café Latte</h2>
 					<p>Leche vaporizada y café espresso en perfecta armonía, ideal para cualquier momento del día.</p>
+					<p>$200</p>
+					<div class="product-actions">
+						<input type="number" min="1" value="1" class="product-qty" id="qty-latte">
+						<button
+							onclick="addToCart({name: 'Café Latte', price: 200}, document.getElementById('qty-latte').value)">Agregar</button>
+					</div>
 				</div>
 				<div class="product-item">
 					<img src="images/tarta1.avif" alt="Tarta de Frutilla" class="product-img">
 					<h2>Tarta de Frutilla</h2>
 					<p>Deliciosa tarta casera con frutillas frescas y crema pastelera, perfecta para acompañar tu café.
 					</p>
+					<p>$400</p>
+					<div class="product-actions">
+						<input type="number" min="1" value="1" class="product-qty" id="qty-tarta">
+						<button
+							onclick="addToCart({name: 'Tarta de Frutilla', price: 400}, document.getElementById('qty-tarta').value)">Agregar</button>
+					</div>
 				</div>
 				<div class="product-item">
 					<img src="images/medialunas.webp" alt="Medialunas" class="product-img">
 					<h2>Medialunas</h2>
 					<p>Clásicas medialunas de manteca, suaves y doradas, recién horneadas cada mañana.</p>
+					<p>$150</p>
+					<div class="product-actions">
+						<input type="number" min="1" value="1" class="product-qty" id="qty-medialunas">
+						<button
+							onclick="addToCart({name: 'Medialunas', price: 150}, document.getElementById('qty-medialunas').value)">Agregar</button>
+					</div>
 				</div>
 				<div class="product-item">
 					<img src="images/capuccino.jpg" alt="Capuccino" class="product-img">
 					<h2>Capuccino</h2>
 					<p>Café espresso, leche espumada y un toque de cacao, la combinación perfecta para los amantes del
 						café.</p>
+					<p>$175</p>
+					<div class="product-actions">
+						<input type="number" min="1" value="1" class="product-qty" id="qty-capuccino">
+						<button
+							onclick="addToCart({name: 'Capuccino', price: 175}, document.getElementById('qty-capuccino').value)">Agregar</button>
+					</div>
 				</div>
 				<div class="product-item">
 					<img src="images/sandwich.jpg" alt="Sándwich de Jamón y Queso" class="product-img">
 					<h2>Sándwich de Jamón y Queso</h2>
 					<p>Pan artesanal, jamón natural y queso fresco, ideal para un almuerzo rápido y delicioso.</p>
+					<p>$350</p>
+					<div class="product-actions">
+						<input type="number" min="1" value="1" class="product-qty" id="qty-sandwich">
+						<button
+							onclick="addToCart({name: 'Sándwich de Jamón y Queso', price: 350}, document.getElementById('qty-sandwich').value)">Agregar</button>
+					</div>
 				</div>
 			</div>
 		</section>
