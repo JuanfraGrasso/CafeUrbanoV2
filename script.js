@@ -13,7 +13,7 @@ function updateCartDisplay() {
         li.textContent = `${item.product.name} - $${subtotal} (x${item.quantity})`;
         cartItems.appendChild(li);
 
-        if (item.quantity == 2 && (item.product.name === "Café Latte" || item.product.name === "Café Espresso" || item.product.name === "Capuccino")) {
+        if (item.quantity >= 2 && (item.product.name === "Café Latte" || item.product.name === "Café Espresso" || item.product.name === "Capuccino")) {
             const discountLi = document.createElement('li');
             discountLi.textContent = `Descuento 2x1 ${item.product.name} - -$${price}`;
             discountLi.classList.add('discount-line');
